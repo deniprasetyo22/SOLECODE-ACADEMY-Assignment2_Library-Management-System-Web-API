@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment2_Library Management System Web API", "Assignment2_Library Management System Web API\Assignment2_Library Management System Web API.csproj", "{042BFE7B-EEB9-4CA4-BECE-64BF9B1B1BAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{042BFE7B-EEB9-4CA4-BECE-64BF9B1B1BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042BFE7B-EEB9-4CA4-BECE-64BF9B1B1BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042BFE7B-EEB9-4CA4-BECE-64BF9B1B1BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042BFE7B-EEB9-4CA4-BECE-64BF9B1B1BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {860ECA31-E16D-4410-9F1D-B02B86AC62B5}
+	EndGlobalSection
+EndGlobal
