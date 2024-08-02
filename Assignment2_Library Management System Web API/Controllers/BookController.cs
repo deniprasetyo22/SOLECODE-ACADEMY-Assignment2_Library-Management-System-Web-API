@@ -11,17 +11,26 @@ namespace Assignment2_Library_Management_System_Web_API.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        private readonly IBook _bookList;
+        private static IBook _bookList;
         public BookController(IBook bookList)
         {
             _bookList = bookList;
+        }
+
+        // POST api/<BookController>
+        [HttpPost]
+        public IActionResult AddBook(Book book)
+        {
+            _bookList.AddBook(book);
+            return Ok("Buku berhasil ditambah.");
         }
 
         // GET: api/<BookController>
         [HttpGet]
         public IActionResult GetAllBook()
         {
-            return Ok(_bookList.GetAllBook);
+            var menuList = _bookList.GetAllBook();
+            return Ok(menuList);
         }
 
         // GET api/<BookController>/5
@@ -40,22 +49,36 @@ namespace Assignment2_Library_Management_System_Web_API.Controllers
             return Ok(book);
         }
 
-        // POST api/<BookController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
         // PUT api/<BookController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult UpdateBook(int id, [FromBody] Book editBook)
         {
+            if (id < 0)
+            {
+                return BadRequest();
+            }
+            bool existingBook = _bookList.UpdateBook(id, editBook);
+            if (existingBook == false)
+            {
+                return NotFound();
+            }
+            return Ok("Data buku berhasil diupdate.");
         }
 
         // DELETE api/<BookController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult DeleteBook(int id)
         {
+            if (id < 0)
+            {
+                return BadRequest();
+            }
+            bool deleteBook = _bookList.DeleteBook(id);
+            if(deleteBook == false)
+            {
+                return NotFound();
+            }
+            return Ok("Data buku berhasil dihapus.");
         }
     }
 }

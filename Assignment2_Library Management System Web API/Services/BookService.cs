@@ -5,7 +5,7 @@ namespace Assignment2_Library_Management_System_Web_API.Services
 {
     public class BookService:IBook
     {
-        private readonly List<Book> bookList = new List<Book>();
+        private static List<Book> bookList = new List<Book>();
         public IEnumerable<Book> GetAllBook()
         {
             return bookList;
@@ -16,6 +16,7 @@ namespace Assignment2_Library_Management_System_Web_API.Services
         }
         public void AddBook(Book book)
         {
+            book.Id = bookList.Count + 1;
             bookList.Add(book);
         }
         public bool UpdateBook(int id, Book editBook)
@@ -23,7 +24,6 @@ namespace Assignment2_Library_Management_System_Web_API.Services
             Book existingBook = bookList.Find(cek => cek.Id == id);
             if (existingBook != null)
             {
-                existingBook.Id = editBook.Id;
                 existingBook.Title = editBook.Title;
                 existingBook.Author = editBook.Author;
                 existingBook.PublicationYear = editBook.PublicationYear;

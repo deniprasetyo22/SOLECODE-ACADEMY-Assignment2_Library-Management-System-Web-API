@@ -1,8 +1,12 @@
+using Assignment2_Library_Management_System_Web_API.Interfaces;
+using Assignment2_Library_Management_System_Web_API.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IBook, BookService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
